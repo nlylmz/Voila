@@ -8,11 +8,10 @@ Accepted to ICLR 2025 Main Conference!
 
 ---
 
-Creation requires the highest cognitive skills in the learning process compared to evaluation (Bloom’s taxonomy of educational objectives). However, many current multimodal reasoning tasks rely on multiple-choice formats, where models select a solution from a predefined set. Although this approach provides insight into a model's learning and understanding capabilities, we argue that it fails to reveal the model’s ability to engage in high-level cognitive tasks involving the interpretation of visual context and abstract reasoning. To attain human-level cognitive intelligence, MLLMs must go beyond evaluating options; they must generate solutions for complex tasks that require advanced reasoning skills. In response to these challenges, we introduce VOILA: a large-scale, open-ended, dynamic benchmark of up to 6.4M data designed to evaluate MLLMs’ perceptual understanding and abstract relational reasoning. VOILA employs an analogical mapping approach in the visual domain, requiring models to generate an image that completes an analogy between two given image pairs, reference and application, without relying on predefined choices.
+Creation requires the highest cognitive skills in the learning process compared to evaluation (Bloom’s taxonomy of educational objectives). However, many current multimodal reasoning tasks rely on multiple-choice formats, where models select a solution from a predefined set. To attain human-level cognitive intelligence, MLLMs must go beyond evaluating options; they must generate solutions for complex tasks that require advanced reasoning skills. In response to this challenge, we introduce VOILA: a large-scale, open-ended, dynamic benchmark of up to 6.4M data designed to evaluate MLLMs’ perceptual understanding and abstract relational reasoning. VOILA employs an analogical mapping approach in the visual domain, requiring models to generate an image that completes an analogy between two given image pairs, reference and application, without relying on predefined choices.
 
 ---
 
-## Authors  
 [Nilay Yilmaz](link_to_profile) | [Maitreya Patel](link_to_profile) | [Yiran Lawrence Luo](link_to_profile) | [Tejas Gokhale](link_to_profile) | [Chitta Baral](link_to_profile) | [ Suren Jayasuriya](link_to_profile) | [Yezhou Yang](link_to_profile) 
 
 ![voila_data](https://github.com/user-attachments/assets/19f07148-d4d2-4340-9edd-114150aa3f9a)
