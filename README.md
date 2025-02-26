@@ -55,6 +55,7 @@ The top section illustrates two visual input formats. The left side of the MLLMs
 
 ## 🖋️ Citation  
 
+```
 @inproceedings{
 yilmaz2025voila,
 title={Voila: Evaluation of {MLLM}s For Perceptual Understanding and Analogical Reasoning},
@@ -63,5 +64,5 @@ booktitle={The Thirteenth International Conference on Learning Representations},
 year={2025},
 url={https://openreview.net/forum?id=q5MUMlHxpd}
 }
-
+```
 
