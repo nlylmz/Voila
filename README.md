@@ -8,6 +8,5 @@ Evaluation of MLLMs for Perceptual Understanding and Abstract Relational Reasoni
 ![arch_voila](https://github.com/user-attachments/assets/23b13e8b-e330-4d14-bb37-29c80b45f5ce)
 
 
-###! If you change the template of the CSV file, you need to change the row number if the code!
+### If you change the template of the CSV file, you need to change the row number in the code!
 
-##JSON Format
