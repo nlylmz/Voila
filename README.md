@@ -12,7 +12,7 @@ Creation requires the highest cognitive skills in the learning process compared 
 
 ---
 
-[Nilay Yilmaz](https://www.linkedin.com/in/nilay-yilmaz/) | [Maitreya Patel] | [Yiran Lawrence Luo] | [Tejas Gokhale] | [Chitta Baral] | [ Suren Jayasuriya] | [Yezhou Yang] 
+[Nilay Yilmaz](https://www.linkedin.com/in/nilay-yilmaz/) | Maitreya Patel | Yiran Lawrence Luo | Tejas Gokhale | Chitta Baral | Suren Jayasuriya | Yezhou Yang 
 
 ![voila_data](https://github.com/user-attachments/assets/19f07148-d4d2-4340-9edd-114150aa3f9a)
 
