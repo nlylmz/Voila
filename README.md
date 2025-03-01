@@ -4,7 +4,7 @@
 [![Homepage](https://img.shields.io/badge/Homepage-Visit-green)]() 
 [![Huggingface](https://img.shields.io/badge/Huggingface-Model-orange)](https://huggingface.co/datasets/nlylmz/VOILA)
 
-Accepted to ICLR 2025 Main Conference!  
+Accepted to ICLR 2025!  
 
 ---
 
