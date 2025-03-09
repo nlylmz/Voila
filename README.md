@@ -51,7 +51,76 @@ The diagram below illustrates the reasoning and evaluation process of VOILA
 
 The top section illustrates two visual input formats. The left side of the MLLMs connection displays the four primary tasks along with their corresponding prompts, while the right side presents the expected outcomes for each task. The results are scored in the evaluation stage utilizing GPT-4o and ground truths.
 
-### If you change the template of the CSV file, you need to change the row number in the code!
+## 🔧 Usage 
+
+### Dataset Generation
+
+To dynamically generate your visual analogy questions using generated images, you need to run create_dataset.py which supports creating both training and testing datasets with options for distractions and image collages. You need to download the Train_Images and Test_Images folders to access the images required for generating questions.
+
+Run the script using the following command:
+```bash
+python create_dataset.py --csv_output <path_to_csv> --dataset <training/testing> --distraction <yes/no> --count <number> --collage <yes/no>
+```
+#### Arguments: 
+```
+csv_output (str, required): Path to save the output CSV file.
+dataset (str, required): Choose between training or testing datasets.
+distraction (str, required): Choose whether to add distractions (yes or no).
+count (int, required): Total number of questions to generate. Ensure it is evenly divisible by the number of rules (7 or 19).
+collage (str, required): Choose whether to create image collages (yes or no).
+```
+### Model Evaluation
+
+To evaluate models on VOILA, we provide the inference_test_VOILA_WD.py script, which downloads the VOILA_WD dataset (with distractions) from Hugging Face and performs step-by-step evaluation for the specified model. The model processes the input data, generates outputs, and saves the results in a JSON file.
+
+Run the script using the following command:
+```bash
+python inference_test_VOILA_WD.py --model_name <huggingface_pretrained_model>
+```
+
+#### Arguments: 
+```
+model_name (str, required): Name of the pretrained model to use.
+dataset_name (str, default: nlylmz/VOILA): Name of the Hugging Face dataset to load.
+output_path (str, default: results.json): Path to save the output JSON file.
+device_map (str, default: auto): Device mapping strategy (auto, cpu, cuda, etc.).
+max_new_tokens (int, default: 2048): Maximum number of new tokens to generate.
+temperature (float, default: 0.0): Controls randomness in text generation. Higher values produce more diverse outputs.
+```
+#### Prompts: 
+Because of the Distraction rule, the prompt used for testing models at the third step differs between VOILA_WD and VOILA_ND.
+
+##### VOILA_WD:
+```
+Step 1: "Describe the content of the first three images in one sentence using the count of subjects and actions in the format of 'Image : Description'"
+Step 2: "Identify the changed and unchanged properties observed between the first and second images, focusing on count of subjects, subject types, and action properties. For the count of subjects, consider the change in either increase or decrease."
+Step 3: "Apply the identified unchanged and changed properties to Image 3 to predict the fourth image. Give me the answer for the fourth image in the format of 'The answer is number = {number}, subject = {subject}, action = {action}'. Use the following rules to determine the properties for the fourth image: 1. If a property remains constant between Image 1 and Image 2, the property in the fourth image will have the same value as the property from Image 3. 2. If a property (excluding number of subjects) changes between Image 1 and Image 2 and is the same in Image 1 and Image 3, set the property value from Image 2 to the fourth image. Otherwise, set it to 'any'. 3. To determine the number of subjects in the fourth image, apply the increase or decrease rate observed from Image 1 to Image 2 to the number of subjects in Image 3. If the result is less than one, set the number property to 'any'."
+Step 4: "Generate the image based on the following description {output}."
+```
+##### VOILA_ND:
+```
+Step 3: "Apply the identified unchanged and changed properties to Image 3 to predict the fourth image. Give me the answer for the fourth image in the format of 'The answer is number = {number}, subject = {subject}, action = {action}'. Use the following rules to determine the properties for the fourth image: 1. If a property remains constant between Image 1 and Image 2, the property in the fourth image will have the same value as the property from Image 3. 2. If a property (excluding number of subjects) changes between Image 1 and Image 2 and is the same in Image 1 and Image 3, set the property value from Image 2 to the fourth image. 3. To determine the number of subjects in the fourth image, apply the increase or decrease rate observed from Image 1 to Image 2 to the number of subjects in Image 3."
+```
+
+### Scoring
+
+To score the results of Multi-Modal Large Language Models (MLLMs) using the GPT-4 Batch API, we provide the score_model_results.py script. This script processes inference results, compares them with ground truth data, generates evaluation outputs in JSONL format, and prints the scores for each step at the terminal. As the script uses Batch API, it might take time to finish the task. To access the ground truth data, you need to download the CSV file, which contains detailed information for each question. 
+##### If you change the template of the CSV file, you need to change the row number in the code!
+
+Run the script using the following command:
+```bash
+python score_model_result.py --json_file_name <path_to_mllm_results> --csv_file_name <path_to_csv> --distraction <yes/no> --open_api_key <your_api_key>
+```
+
+#### Arguments: 
+```
+json_file_name (str, required): Path to the JSON file containing MLLM inference results.
+csv_file_name (str, required): Path to the CSV file for evaluation.
+distraction (str, required): Choose whether to enable (yes) or disable (no) distractions during evaluation (required).
+batch_jsonl_file (str, default: "batch"): Path to save the generated JSONL file for batch processing.
+output_batch_job_file(str, default: "results"): Path to save the final evaluation output JSONL file.
+open_api_key (str, required): OpenAI API key for accessing GPT-4 Batch API.
+```
 
 ## 🖋️ Citation  
 
