@@ -71,7 +71,7 @@ collage (str, required): Choose whether to create image collages (yes or no).
 ```
 ### Model Evaluation
 
-To evaluate models on VOILA, we provide the inference_test_VOILA_WD.py script, which downloads the VOILA_WD dataset (with distractions) from Hugging Face and performs step-by-step evaluation for the specified model. The model processes the input data, generates outputs, and saves the results in a JSON file.
+To evaluate models on VOILA, we provide the inference_test.py script, which downloads the VOILA_WD dataset (with distractions) from Hugging Face and performs step-by-step evaluation for the specified model. The model processes the input data, generates outputs, and saves the results in a JSON file. Because of the Distraction rule, the prompt used for testing models at the third step differs between VOILA_WD and VOILA_ND.
 
 Run the script using the following command:
 ```bash
@@ -82,14 +82,14 @@ python inference_test_VOILA_WD.py --model_name <huggingface_pretrained_model>
 ```
 model_name (str, required): Name of the pretrained model to use.
 dataset_name (str, default: nlylmz/VOILA): Name of the Hugging Face dataset to load.
+distraction (str, required): Choose the option if the dataset has a distraction factor: yes, no
 output_path (str, default: results.json): Path to save the output JSON file.
 device_map (str, default: auto): Device mapping strategy (auto, cpu, cuda, etc.).
 max_new_tokens (int, default: 2048): Maximum number of new tokens to generate.
 temperature (float, default: 0.0): Controls randomness in text generation. Higher values produce more diverse outputs.
 ```
+<!--
 #### Prompts: 
-Because of the Distraction rule, the prompt used for testing models at the third step differs between VOILA_WD and VOILA_ND.
-
 ##### VOILA_WD:
 ```
 Step 1: "Describe the content of the first three images in one sentence using the count of subjects and actions in the format of 'Image : Description'"
@@ -101,6 +101,7 @@ Step 4: "Generate the image based on the following description {output}."
 ```
 Step 3: "Apply the identified unchanged and changed properties to Image 3 to predict the fourth image. Give me the answer for the fourth image in the format of 'The answer is number = {number}, subject = {subject}, action = {action}'. Use the following rules to determine the properties for the fourth image: 1. If a property remains constant between Image 1 and Image 2, the property in the fourth image will have the same value as the property from Image 3. 2. If a property (excluding number of subjects) changes between Image 1 and Image 2 and is the same in Image 1 and Image 3, set the property value from Image 2 to the fourth image. 3. To determine the number of subjects in the fourth image, apply the increase or decrease rate observed from Image 1 to Image 2 to the number of subjects in Image 3."
 ```
+-->
 
 ### Scoring
 
