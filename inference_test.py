@@ -107,7 +107,7 @@ def main(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Run MLLM model inference with Hugging Face dataset")
     parser.add_argument("--model_name", type=str, required=True, help="Name of the pretrained model")
-    parser.add_argument("--dataset_name", type=str, required=True, help="Name of the Hugging Face dataset to load")
+    parser.add_argument("--dataset_name", type=str, default='nlylmz/VOILA', help="Name of the Hugging Face dataset to load")
     parser.add_argument("--distraction", type=str, choices=["no", "yes"], required=True, help="Choose the option if the dataset has distraction factor: yes, no")
     parser.add_argument("--output_path", type=str, default="results.json", help="Path to save the output JSON file")
     parser.add_argument("--device_map", type=str, default='auto', help="Device map for model loading")
