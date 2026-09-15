@@ -126,13 +126,13 @@ open_api_key (str, required): OpenAI API key for accessing GPT-4 Batch API.
 ## 🖋️ Citation  
 
 ```
-@inproceedings{
-yilmaz2025voila,
-title={Voila: Evaluation of {MLLM}s For Perceptual Understanding and Analogical Reasoning},
-author={Nilay Yilmaz and Maitreya Patel and Yiran Lawrence Luo and Tejas Gokhale and Chitta Baral and Suren Jayasuriya and Yezhou Yang},
-booktitle={The Thirteenth International Conference on Learning Representations},
-year={2025},
-url={https://openreview.net/forum?id=q5MUMlHxpd}
+@inproceedings{yilmaz2025voila,
+  title={Voila: Evaluation of MLLMs for perceptual understanding and analogical reasoning},
+  author={Yilmaz, Nilay and Patel, Maitreya and Luo, Lawrence and Gokhale, Tejas and Baral, Chitta and Jayasuriya, Suren and others},
+  booktitle={International Conference on Learning Representations},
+  volume={2025},
+  pages={69763--69788},
+  year={2025}
 }
 ```
 
